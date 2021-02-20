@@ -2,8 +2,7 @@ package com.example.dinnerdecider
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,11 +10,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val decideBtn = findViewById<Button>(R.id.decideBtn)
-        val selectedFoodTxt = findViewById<TextView>(R.id.selectedFoodTxt)
-        val addFoodBtn = findViewById<Button>(R.id.addFoodBtn)
-        val addFoodTxt = findViewById<TextView>(R.id.addFoodTxt)
 
         decideBtn.setOnClickListener {
             val random = Random()
@@ -27,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             if (addFoodTxt.text.isNotEmpty()) {
                 val newFood = addFoodTxt.text.toString()
                 foodList.add(newFood)
-                addFoodTxt.text = ""
+                addFoodTxt.setText("")
             }
         }
     }
