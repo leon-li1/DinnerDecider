@@ -24,9 +24,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         addFoodBtn.setOnClickListener {
-            val newFood = addFoodTxt.text.toString()
-            foodList.add(newFood)
-            addFoodTxt.text = ""
+            if (addFoodTxt.text.isNotEmpty()) {
+                val newFood = addFoodTxt.text.toString()
+                foodList.add(newFood)
+                addFoodTxt.text = ""
+            }
         }
     }
 }
